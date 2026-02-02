@@ -49,10 +49,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }) { innerPadding ->
 
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
                 }
             }
         }
