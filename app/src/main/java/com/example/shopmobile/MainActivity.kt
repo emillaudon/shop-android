@@ -23,6 +23,8 @@ import androidx.compose.material3.IconButton;
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar;
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.navigation.compose.rememberNavController
+import com.example.shopmobile.navigation.ShopNavHost
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -31,6 +33,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ShopMobileTheme {
+                val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
                     TopAppBar(
                         title = {Text("Shop")},
@@ -48,7 +51,10 @@ class MainActivity : ComponentActivity() {
 
                     )
                 }) { innerPadding ->
-
+                    ShopNavHost(
+                        navController = navController,
+                        modifier = Modifier.padding(innerPadding)
+                    )
 
                 }
             }
