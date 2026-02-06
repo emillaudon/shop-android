@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -66,10 +67,16 @@ private fun ProductCard() {
                 modifier = Modifier
                     .height(160.dp)
                     .width(120.dp)
-                    .background(MaterialTheme.colorScheme.primary)
+                    .background(MaterialTheme.colorScheme.errorContainer)
+            ) {
+                Text("IMAGE")
+            }
+            Spacer(Modifier.height(10.dp))
+            Text("Product Name",
+                style = MaterialTheme.typography.titleMedium)
+            Text("$10",
+                style = MaterialTheme.typography.bodyMedium
             )
-            Text("Product Image")
-            Text("Product Name")
         }
     }
 }
