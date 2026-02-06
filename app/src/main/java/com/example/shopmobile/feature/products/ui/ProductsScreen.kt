@@ -36,34 +36,40 @@ fun ProductsScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        item {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(240.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant
-                ),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(modifier = Modifier
-                    .fillMaxWidth()
-                                    .padding(12.dp),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
+        items(count = 2) {
+            ProductCard()
+            ProductCard()
+        }
+    }
+}
 
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .height(160.dp)
-                            .width(120.dp)
-                            .background(MaterialTheme.colorScheme.primary)
-                    )
-                    Text("Product Image")
-                    Text("Product Name")
-                }
-            }
+@Composable
+private fun ProductCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(240.dp),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+
+            ) {
+            Box(
+                modifier = Modifier
+                    .height(160.dp)
+                    .width(120.dp)
+                    .background(MaterialTheme.colorScheme.primary)
+            )
+            Text("Product Image")
+            Text("Product Name")
         }
     }
 }
