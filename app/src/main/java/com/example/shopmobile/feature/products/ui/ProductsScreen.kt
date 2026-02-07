@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.shopmobile.feature.products.ui.components.ProductCard
 
 @Composable
 fun ProductsScreen(
@@ -41,43 +42,6 @@ fun ProductsScreen(
         items(state.products, key = { it.id }) { product ->
             ProductCard(product)
 
-        }
-    }
-}
-
-@Composable
-private fun ProductCard(product: ProductUi) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(240.dp),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-
-            ) {
-            Box(
-                modifier = Modifier
-                    .height(160.dp)
-                    .width(120.dp)
-                    .background(MaterialTheme.colorScheme.errorContainer)
-            ) {
-                Text("IMAGE")
-            }
-            Spacer(Modifier.height(10.dp))
-            Text(product.name,
-                style = MaterialTheme.typography.titleMedium)
-            Text("$" + product.priceText,
-                style = MaterialTheme.typography.bodyMedium
-            )
         }
     }
 }

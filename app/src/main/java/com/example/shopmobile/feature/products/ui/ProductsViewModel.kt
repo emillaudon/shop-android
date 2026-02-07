@@ -14,7 +14,9 @@ class ProductsViewModel : ViewModel() {
         ProductsUiState(
         products = listOf(
             ProductUi("1", "T-Shirt", "199"),
-            ProductUi("2", "T-Shirt Again", "299")
+            ProductUi("2", "T-Shirt Again", "299"),
+            ProductUi("3", "Belt", "39"),
+            ProductUi("4", "Hoodie", "99")
         )
     ))
         private set
