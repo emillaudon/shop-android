@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -37,15 +38,15 @@ fun ProductsScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        items(count = 2) {
-            ProductCard()
-            ProductCard()
+        items(state.products, key = { it.id }) { product ->
+            ProductCard(product)
+
         }
     }
 }
 
 @Composable
-private fun ProductCard() {
+private fun ProductCard(product: ProductUi) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -72,9 +73,9 @@ private fun ProductCard() {
                 Text("IMAGE")
             }
             Spacer(Modifier.height(10.dp))
-            Text("Product Name",
+            Text(product.name,
                 style = MaterialTheme.typography.titleMedium)
-            Text("$10",
+            Text("$" + product.priceText,
                 style = MaterialTheme.typography.bodyMedium
             )
         }
