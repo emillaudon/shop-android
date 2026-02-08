@@ -50,10 +50,10 @@ app/src/main/java/com/example/shopmobile/
 │   └── theme/          # Compose theme and styling
 └── MainActivity.kt     # Application entry point
 
+```
 Each feature contains its own UI and logic.
 
 The structure may evolve during development.
-```
 
 ---
 
