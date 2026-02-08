@@ -4,30 +4,53 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.shopmobile.feature.products.data.ProductsRepositoryImpl
+import com.example.shopmobile.feature.products.data.mapper.toUi
+import com.example.shopmobile.feature.products.domain.ProductsRepository
+import kotlinx.coroutines.launch
 
 sealed interface ProductsEvent {
     data object Refresh : ProductsEvent
 }
 
-class ProductsViewModel : ViewModel() {
+class ProductsViewModel(
+    private val repository: ProductsRepository = ProductsRepositoryImpl()
+) : ViewModel() {
 
-
-    var state by mutableStateOf(
-        ProductsUiState(
-        products = listOf(
-            ProductUi("1", "T-Shirt", "199"),
-            ProductUi("2", "T-Shirt Again", "299"),
-            ProductUi("3", "Belt", "39"),
-            ProductUi("4", "Hoodie", "99")
-        )
-    ))
+    var state by mutableStateOf(ProductsUiState())
         private set
+
+    init {
+        loadProducts()
+    }
 
     fun onEvent(event: ProductsEvent) {
         when (event) {
             ProductsEvent.Refresh -> {
-                //Later do stuff
+                loadProducts()
             }
+        }
+    }
+
+    private fun loadProducts() {
+        viewModelScope.launch {
+            state = state.copy(isLoading = true, error = null)
+
+            repository.getProducts()
+                .onSuccess { products ->
+                    val uiProducts = products.map { it.toUi() }
+
+                    state = state.copy(
+                        products = uiProducts,
+                        isLoading = false
+                    )
+                }
+                .onFailure { e ->
+                    state = state.copy(
+                        isLoading = false,
+                        error = e.message?: "Something went wrong"
+                    ) }
         }
     }
 }
