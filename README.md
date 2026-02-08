@@ -53,6 +53,7 @@ app/src/main/java/com/example/shopmobile/
 Each feature contains its own UI and logic.
 
 The structure may evolve during development.
+```
 
 ---
 
