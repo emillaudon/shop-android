@@ -54,7 +54,7 @@ public fun ProductCard(product: ProductUi) {
             Spacer(Modifier.height(10.dp))
             Text(product.name,
                 style = MaterialTheme.typography.titleMedium)
-            Text("$" + product.priceText,
+            Text(product.priceText,
                 style = MaterialTheme.typography.bodyMedium
             )
         }
