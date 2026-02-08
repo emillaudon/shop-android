@@ -10,6 +10,8 @@ sealed interface ProductsEvent {
 }
 
 class ProductsViewModel : ViewModel() {
+
+
     var state by mutableStateOf(
         ProductsUiState(
         products = listOf(
