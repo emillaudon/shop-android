@@ -7,6 +7,7 @@ fun Product.toUi(): ProductUi {
     return ProductUi(
         id = id.toString(),
         name = name,
-        priceText = "$${price.toString()}"
+        priceText = "$${price.toString()}",
+        imageUrl = imageUrl
     )
 }

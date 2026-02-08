@@ -19,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.shopmobile.feature.products.ui.ProductUi
 
 @Composable
@@ -41,14 +43,14 @@ public fun ProductCard(product: ProductUi) {
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-            Box(
+            AsyncImage(
+                model = product.imageUrl,
+                contentDescription = product.name,
                 modifier = Modifier
                     .height(160.dp)
-                    .width(120.dp)
-                    .background(MaterialTheme.colorScheme.errorContainer)
-            ) {
-                Text("IMAGE")
-            }
+                    .width(120.dp),
+                contentScale = ContentScale.Crop
+            )
             Spacer(Modifier.height(10.dp))
             Text(product.name,
                 style = MaterialTheme.typography.titleMedium)
