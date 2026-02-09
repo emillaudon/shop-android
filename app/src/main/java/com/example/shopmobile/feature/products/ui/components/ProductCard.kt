@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -29,10 +30,10 @@ public fun ProductCard(product: ProductUi) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(240.dp),
+            .height(280.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+            containerColor = MaterialTheme.colorScheme.onBackground
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
@@ -57,6 +58,14 @@ public fun ProductCard(product: ProductUi) {
             Text(product.priceText,
                 style = MaterialTheme.typography.bodyMedium
             )
+            Spacer(Modifier.height(10.dp))
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Text("Buy")
+            }
         }
     }
 }
