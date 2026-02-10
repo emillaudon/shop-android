@@ -23,10 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.shopmobile.feature.products.domain.model.Product
 import com.example.shopmobile.feature.products.ui.ProductUi
 
 @Composable
-public fun ProductCard(product: ProductUi) {
+public fun ProductCard(
+    product: ProductUi,
+    onBuyClick: (ProductUi) -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -60,7 +64,7 @@ public fun ProductCard(product: ProductUi) {
             )
             Spacer(Modifier.height(10.dp))
             Button(
-                onClick = {},
+                onClick = { onBuyClick(product) },
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
