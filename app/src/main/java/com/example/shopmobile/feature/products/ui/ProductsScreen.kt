@@ -40,7 +40,7 @@ fun ProductsScreen(
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(state.products, key = { it.id }) { product ->
-            ProductCard(product)
+            ProductCard(product, onBuyClick = { onEvent(ProductsEvent.OnProductClick(product.id)) })
 
         }
     }

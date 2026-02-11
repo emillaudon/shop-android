@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 
 sealed interface ProductsEvent {
     data object Refresh : ProductsEvent
+    data class OnProductClick(val productId: String) : ProductsEvent
 }
 
 class ProductsViewModel(
@@ -29,6 +30,10 @@ class ProductsViewModel(
         when (event) {
             ProductsEvent.Refresh -> {
                 loadProducts()
+            }
+
+            is ProductsEvent.OnProductClick -> {
+                //Add to cart etc
             }
         }
     }
