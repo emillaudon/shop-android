@@ -4,6 +4,7 @@ import com.example.shopmobile.feature.products.ui.ProductUi
 
 data class CartUiState(
     val products: List<ProductUi> = emptyList(),
+    val isEmpty: Boolean = true,
     val isLoading: Boolean = false,
     val error: String? = null
 
