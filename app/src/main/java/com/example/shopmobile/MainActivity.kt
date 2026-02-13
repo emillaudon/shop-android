@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -38,7 +39,16 @@ class MainActivity : ComponentActivity() {
             ShopMobileTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
                     TopAppBar(
-                        title = {Text("Shop")},
+                        title = {
+                            Text("Shop",
+                                modifier = Modifier
+                                    .clickable {
+                                        navController.navigate(Routes.PRODUCTS) {
+                                            launchSingleTop = true
+                                        }
+
+                                    })
+                                },
                         actions = {
                             IconButton(onClick = { onProfileClick() }) {
                                 Icon(imageVector = Icons.Default.AccountCircle,
