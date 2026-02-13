@@ -7,7 +7,7 @@ import com.example.shopmobile.feature.products.ui.ProductsViewModel
 
 @Composable
 fun CartRoute() {
-    val vm: ProductsViewModel = viewModel()
+    val vm: CartViewModel = viewModel()
     val state = vm.state
 
     CartScreen(state = state, onEvent = vm::onEvent)

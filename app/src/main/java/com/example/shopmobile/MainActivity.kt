@@ -25,6 +25,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar;
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.navigation.compose.rememberNavController
+import com.example.shopmobile.navigation.Routes
 import com.example.shopmobile.navigation.ShopNavHost
 
 class MainActivity : ComponentActivity() {
@@ -33,8 +34,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             ShopMobileTheme {
-                val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
                     TopAppBar(
                         title = {Text("Shop")},
@@ -43,7 +44,10 @@ class MainActivity : ComponentActivity() {
                                 Icon(imageVector = Icons.Default.AccountCircle,
                                     "Profile")
                             }
-                            IconButton(onClick = { onProfileClick() }) {
+                            IconButton(onClick = {
+                                navController.navigate(Routes.CART) {
+                                launchSingleTop = true
+                            } }) {
                                 Icon(imageVector = Icons.Default.ShoppingCart,
                                     "Profile")
                             }
@@ -70,6 +74,8 @@ class MainActivity : ComponentActivity() {
 fun onProfileClick() {
 
 }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {

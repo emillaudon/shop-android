@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.shopmobile.feature.cart.CartRoute
 import com.example.shopmobile.feature.products.ui.ProductsRoute
 import com.example.shopmobile.feature.products.ui.ProductsScreen
 
@@ -19,6 +20,10 @@ fun ShopNavHost(navController: NavHostController,
     ) {
         composable(Routes.PRODUCTS) {
             ProductsRoute()
+        }
+
+        composable(Routes.CART) {
+            CartRoute()
         }
     }
 }
