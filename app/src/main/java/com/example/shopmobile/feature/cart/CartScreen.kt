@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -36,6 +37,9 @@ fun CartScreen(
         if (state.isEmpty) {
             Text("Cart is empty", color = Color.Black)
         }else {
+            LazyColumn() {
+
+            }
             Text("Cart has items: ${state.products.size}") // om du har items
         }
     }
