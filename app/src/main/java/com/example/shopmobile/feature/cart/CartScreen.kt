@@ -18,6 +18,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.shopmobile.feature.cart.components.CartProductCard
+import com.example.shopmobile.feature.products.ui.ProductUi
 import com.example.shopmobile.feature.products.ui.ProductsEvent
 import com.example.shopmobile.feature.products.ui.ProductsUiState
 import com.example.shopmobile.feature.products.ui.components.ProductCard
@@ -34,13 +36,15 @@ fun CartScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("Cart", color = Color.Black, fontSize = 34.sp, fontWeight = FontWeight.Bold)
-        if (state.isEmpty) {
+        if (!state.isEmpty) {
             Text("Cart is empty", color = Color.Black)
         }else {
             LazyColumn() {
-
+                item() {
+                    CartProductCard(product = ProductUi("Id", name = "Product", "$200", imageUrl = "URL"))
+                }
             }
-            Text("Cart has items: ${state.products.size}") // om du har items
+            Text("Cart has items: ${state.products.size}", color = Color.Black) // om du har items
         }
     }
 }
