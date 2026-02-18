@@ -40,8 +40,8 @@ public fun CartProductCard(
                 horizontalArrangement = Arrangement.SpaceBetween
 
             ) {
-                Text("Name")
-                Text("$99")
+                Text(product.name)
+                Text(product.priceText)
             }
 
             Row(modifier = Modifier
@@ -53,9 +53,15 @@ public fun CartProductCard(
                         .size(80.dp)
                         .background(Color.Blue)
                 )
-                Button(onClick = {}) { Text("-") }
-                Text("1")
-                Button(onClick = {}) { Text("+") }
+                Box(
+                    modifier = Modifier.width(120.dp)
+                ) {
+                    Row() {
+                        Button(onClick = {}) { Text("-") }
+                        Text("1")
+                        Button(onClick = {}) { Text("+") }
+                    }
+                }
             }
         }
     }
