@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,7 +33,7 @@ public fun CartProductCard(
 
     ) {
         Column(modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(8.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
@@ -54,9 +56,14 @@ public fun CartProductCard(
                         .background(Color.Blue)
                 )
                 Box(
-                    modifier = Modifier.width(120.dp)
+                    modifier = Modifier.width(140.dp)
                 ) {
-                    Row() {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
                         Button(onClick = {}) { Text("-") }
                         Text("1")
                         Button(onClick = {}) { Text("+") }
