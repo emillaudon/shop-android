@@ -16,6 +16,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,6 +30,8 @@ import com.example.shopmobile.feature.products.ui.ProductUi
 public fun CartProductCard(
     product: ProductUi
 ) {
+    var qty by remember { mutableStateOf(1) }
+
     Card(
         modifier = Modifier
             .height(140.dp)
@@ -65,8 +71,8 @@ public fun CartProductCard(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Button(onClick = {}) { Text("-") }
-                        Text("1")
-                        Button(onClick = {}) { Text("+") }
+                        Text(qty.toString())
+                        Button(onClick = { qty++ }) { Text("+") }
                     }
                 }
             }
