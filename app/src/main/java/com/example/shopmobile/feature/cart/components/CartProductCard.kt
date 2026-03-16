@@ -24,13 +24,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.shopmobile.feature.cart.CartProductUi
 import com.example.shopmobile.feature.products.ui.ProductUi
 
 @Composable
 public fun CartProductCard(
-    product: ProductUi
+    product: CartProductUi
 ) {
-    var qty by remember { mutableStateOf(1) }
+    var qty by remember { mutableStateOf(product.qty) }
 
     Card(
         modifier = Modifier

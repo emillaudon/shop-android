@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.shopmobile.feature.cart.components.CartProductCard
+import com.example.shopmobile.feature.cart.data.mapper.toCartUi
 import com.example.shopmobile.feature.products.ui.ProductUi
 import com.example.shopmobile.feature.products.ui.ProductsEvent
 import com.example.shopmobile.feature.products.ui.ProductsUiState
@@ -41,7 +42,7 @@ fun CartScreen(
         }else {
             LazyColumn() {
                 item() {
-                    CartProductCard(product = ProductUi("Id", name = "Product", "$200", imageUrl = "URL"))
+                    CartProductCard(product = ProductUi("Id", name = "Product", "$200", imageUrl = "URL").toCartUi())
                 }
             }
             Text("Cart has items: ${state.products.size}", color = Color.Black) // om du har items

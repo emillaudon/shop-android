@@ -15,6 +15,6 @@ data class CartProductUi(
     val id: String,
     val name: String,
     val priceText: String,
-    val qty: Number,
+    val qty: Int,
     val imageUrl: String
 )
