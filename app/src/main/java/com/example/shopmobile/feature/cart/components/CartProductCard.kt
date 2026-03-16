@@ -70,7 +70,7 @@ public fun CartProductCard(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Button(onClick = { qty-- }) { Text("-") }
+                        Button(onClick = { if (qty > 0) qty-- }) { Text("-") }
                         Text(qty.toString())
                         Button(onClick = { qty++ }) { Text("+") }
                     }
